@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OverWeb</title>
+    <link rel="Shortcut Icon" type="image/x-icon" href="{{ url_for('static', filename='icons/favicon.ico') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mdui.css') }}" />
+    <script src="{{ url_for('static', filename='js/mdui.js') }}"></script>
+</head>
+
+<body class="mdui-theme-primary-indigo">
+    <div class="mdui-appbar">
+        <div class="mdui-toolbar mdui-color-theme">
+            <a href="/go" class="mdui-typo-headline">Go</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a class="mdui-btn mdui-btn-icon" mdui-menu="{target: '#menu'}">
+                <i class="mdui-icon material-icons">menu</i>
+            </a>
+            <ul class="mdui-menu" id="menu">
+                <li class="mdui-menu-item">
+                    <a href="/" class="mdui-ripple">Home</a>
+                </li>
+                <li class="mdui-menu-item" disabled>
+                    <a href="/go" class="mdui-ripple">Go</a>
+                </li>
+                <li class="mdui-menu-item">
+                    <a href="/about" class="mdui-ripple">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="mdui-container">
+        <div class="mdui-typo">
+            <h1 class="mdui-text-color-theme">Creating your container...</h1>
+            <hr />
+            <div id="content">
+                <div class="mdui-progress">
+                    <div class="mdui-progress-indeterminate"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+            setTimeout(() => {
+                content = document.getElementById('content')
+                content.innerHTML =
+                    '<p class="mdui-text-color-theme">Done</p>'
+                window.open('{{ link }}', '', 'fullscreen=yes')
+            }, 10000);
+        }
+    </script>
+</body>
+
+</html>
